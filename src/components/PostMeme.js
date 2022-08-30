@@ -5,16 +5,16 @@ const PostMeme = ({memes}) => {
 
     return (
         <>
-            { memes.map((item, idx) => (
-                <div className="col-md-4" key={idx}>
+            { memes.map(item => (
+                <div className="col-lg-4 col-md-6" key={item._id}>
                     <div className="card border-0 shadow rounded-3">
                         <img src={item.preview[2]} className="card-img-top" alt={item.title}/>
                         <div className="card-body">
                             <h5 className="card-title">{item.title}</h5>
-                            <a href={`https://www.reddit.com/r/${item.subreddit}`} target='_blank'>
+                            <a href={`https://www.reddit.com/r/${item.subreddit}`} target='_blank' rel="noreferrer">
                                 <Tag color="orange">/{item.subreddit}</Tag>
                             </a>
-                            <a href={`https://www.reddit.com/user/${item.author}`} target='_blank'>
+                            <a href={`https://www.reddit.com/user/${item.author}`} target='_blank' rel="noreferrer">
                                 <Tag color="default">
                                     <i className="fas fa-user"></i> {item.author}
                                 </Tag>
@@ -26,9 +26,10 @@ const PostMeme = ({memes}) => {
                             <p className='my-2'>
                                 <i className="fas fa-chevron-up"></i> {item.ups}
                             </p>
-                            <a href={`${item.postLink}`} className="btn btn-lg btn-info float-end fw-bold text-white w-50" target='_blank'>
+                            <a href={`${item.postLink}`} className="btn btn-lg btn-primary float-end fw-bold text-white w-50" target='_blank' rel="noreferrer">
                                 <i className="fab fa-reddit"></i> Go to post
                             </a>
+                    
                             {/* <Link to={`${item.postLink}`} className="btn btn-lg btn-info float-end fw-bold text-white w-50" target='_blank'>
                                 <i className="fab fa-reddit"></i> Go to post
                             </Link> */}
